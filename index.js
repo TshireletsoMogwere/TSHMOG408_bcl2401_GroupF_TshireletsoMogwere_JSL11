@@ -208,8 +208,9 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
-      
+      title: titleInput,
     };
+
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
@@ -237,21 +238,23 @@ function toggleTheme() {
     darkThemeIcon.style.display = 'inline-block'; // Show the dark theme icon
     lightThemeIcon.style.display = 'none'; // Hide the light theme icon
     // Apply dark theme styles...
-} else {
+   } else {
     // Light theme is selected
     darkThemeIcon.style.display = 'none'; // Hide the dark theme icon
     lightThemeIcon.style.display = 'inline-block'; // Show the light theme icon
     // Apply light theme styles...
-}
+   }
 }
 
 
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
+   titleInput.value = task.title,
   
 
   // Get button elements from the task modal
+   
 
 
   // Call saveTaskChanges upon click of Save Changes button
