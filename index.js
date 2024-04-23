@@ -252,18 +252,21 @@ function openEditTaskModal(task) {
   
 
   // Get button elements from the task modal
-   const saveTaskChanges = document.getElementById('save-task-changes-btn');
+   const saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
    const cancelEditBtn = document.getElementById('cancel-edit-btn');
    const deleteTaskBtn = document.getElementById('delete-task-btn');
    
 
 
   // Call saveTaskChanges upon click of Save Changes button
-     saveTaskChanges.addEventListener('click', () => {
-      saveTaskChanges();
+     saveTaskChangesBtn.addEventListener('click', () => {
+      saveChanges();
      })
 
   // Delete task using a helper function and close the task modal
+     deleteTaskBtn.addEventListener('click', () => {
+      closeModal();
+     })
 
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
@@ -271,16 +274,21 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
+  // var newDescription = document.getElementById('taskDescriptionInput).value;
   
 
   // Create an object with the updated task details
+  //  var updatedTask = {
+
+  //  }
 
 
   // Update task using a hlper functoin
+  // updateTask(taskId, updatedTask);
  
 
   // Close the modal and refresh the UI to reflect the changes
-
+  closeModal();
   refreshTasksUI();
 }
 
