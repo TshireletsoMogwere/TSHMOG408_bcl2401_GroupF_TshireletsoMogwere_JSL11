@@ -29,11 +29,13 @@ const elements = {
    hideSideBarDiv: document.querySelector('hide-side-bar-div'),
    showSideBarBtn: document.getElementById('show-side-bar-btn'),
    filterDiv: document.getElementById('filterDiv'),
-   themeSwitch: document.getElementsByClassName('switch'), 
+   themeSwitch: document.getElementById('switch'), 
    createNewTaskBtn: document.getElementById("add-task-modal-window"), 
    sideBarNav: document.querySelector('.side-bar'),
    sideBarBottom: document.querySelector('.side-bar-bottom'),
   //  sideLogoDiv: sideBar.querySelector('#side-logo-div'),
+  darkThemeIcon: document.getElementById('icon-dark'),
+  lightThemeIcon: document.getElementById('icon-light'),
 
 }
 
@@ -232,15 +234,11 @@ function toggleSidebar(show) {
 
 function toggleTheme() {
   if (themeSwitch.checked) {
-    // Dark theme is selected
     darkThemeIcon.style.display = 'inline-block'; // Show the dark theme icon
     lightThemeIcon.style.display = 'none'; // Hide the light theme icon
-    // Apply dark theme styles...
    } else {
-    // Light theme is selected
     darkThemeIcon.style.display = 'none'; // Hide the dark theme icon
     lightThemeIcon.style.display = 'inline-block'; // Show the light theme icon
-    // Apply light theme styles...
    }
 }
 
@@ -305,9 +303,9 @@ function init() {
   toggleSidebar(showSidebar);
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
-  fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
+  fetchAndDisplayBoardsAndTasks('boards', 'tasks'); // Initial display of boards and tasks
 } catch (error) {
-  
+
 }
 }
  
