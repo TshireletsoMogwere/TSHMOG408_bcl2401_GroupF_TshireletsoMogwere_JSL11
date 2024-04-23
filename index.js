@@ -57,7 +57,7 @@ function fetchAndDisplayBoardsAndTasks() {
 // Creates different boards in the DOM
 // TASK: Fix Bugs
 function displayBoards(boards) {
-  const boardsContainer = document.getElementById("boards-nav-links-div");
+  const boardsContainer = document.querySelector("#boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
   boards.forEach(board => {
     const boardElement = document.createElement("button");
@@ -222,11 +222,27 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- 
+    const show = window.getComputedStyle(sideBarNav).display !== 'none';
+
+    if (show === true) {
+        sideBarNav.style.display = 'none'; // Hide the sidebar
+    } else {
+        sideBarNav.style.display = 'block'; // Show the sidebar
+    }
 }
 
 function toggleTheme() {
- 
+  if (themeSwitch.checked) {
+    // Dark theme is selected
+    darkThemeIcon.style.display = 'inline-block'; // Show the dark theme icon
+    lightThemeIcon.style.display = 'none'; // Hide the light theme icon
+    // Apply dark theme styles...
+} else {
+    // Light theme is selected
+    darkThemeIcon.style.display = 'none'; // Hide the dark theme icon
+    lightThemeIcon.style.display = 'inline-block'; // Show the light theme icon
+    // Apply light theme styles...
+}
 }
 
 
