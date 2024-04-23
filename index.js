@@ -33,7 +33,7 @@ const elements = {
    createNewTaskBtn: document.getElementById("add-task-modal-window"), 
    sideBarNav: document.querySelector('.side-bar'),
    sideBarBottom: document.querySelector('.side-bar-bottom'),
-   sideLogoDiv: sideBarNav.querySelector('#side-logo-div'),
+  //  sideLogoDiv: sideBar.querySelector('#side-logo-div'),
 
 }
 
@@ -223,12 +223,10 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
-    const show = window.getComputedStyle(sideBarNav).display !== 'none';
-
-    if (show === true) {
-        sideBarNav.style.display = 'none'; // Hide the sidebar
+    if (show) {
+        sideBar.style.display = 'none'; // Hide the sidebar
     } else {
-        sideBarNav.style.display = 'block'; // Show the sidebar
+        sideBar.style.display = 'block'; // Show the sidebar
     }
 }
 
@@ -261,7 +259,9 @@ function openEditTaskModal(task) {
 
 
   // Call saveTaskChanges upon click of Save Changes button
- 
+     saveTaskChanges.addEventListener('click', () => {
+      saveTaskChanges();
+     })
 
   // Delete task using a helper function and close the task modal
 
