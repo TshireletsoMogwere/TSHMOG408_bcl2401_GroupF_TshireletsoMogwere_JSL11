@@ -31,7 +31,9 @@ const elements = {
    filterDiv: document.getElementById('filterDiv'),
    themeSwitch: document.getElementsByClassName('switch'), 
    createNewTaskBtn: document.getElementById("add-task-modal-window"), 
-   sideBarDiv: document.getElementById('side-bar-div'),
+   sideBarNav: document.querySelector('.side-bar'),
+   sideBarBottom: document.querySelector('.side-bar-bottom'),
+   sideLogoDiv: sideBarNav.querySelector('#side-logo-div'),
 
 }
 
