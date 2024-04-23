@@ -21,6 +21,17 @@ initializeData();
 
 // TASK: Get elements from the DOM
 const elements = {
+   headerBoardName: document.getElementById('header-board-name'),
+   editTaskModalWindow: document.querySelector('.edit-task-modal-window'),
+   modalWindow: document.querySelector('.modal-window'),
+   columnDivs: document.querySelectorAll('.column-div'),
+   toggleDiv: document.querySelector('.toggle-div'),
+   hideSideBarDiv: document.querySelector('hide-side-bar-div'),
+   showSideBarBtn: document.getElementById('show-side-bar-btn'),
+   filterDiv: document.getElementById('filterDiv'),
+   themeSwitch: document.getElementsByClassName('switch'), 
+   createNewTaskBtn: document.getElementById("add-task-modal-window"), 
+   sideBarDiv: document.getElementById('side-bar-div'),
 
 }
 
