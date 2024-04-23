@@ -299,10 +299,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
+  try {
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
+} catch (error) {
+  
 }
+}
+ 
