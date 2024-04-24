@@ -190,7 +190,7 @@ function setupEventListeners() {
   });
 
   // Add new task form submission event listener
-  elements.modalWindow.addEventListener('submit',  (event) => {
+  elements.modalWindow.addEventListener('submit', (event) => {
     addTask(event)
   });
 }
@@ -210,7 +210,10 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
-      title: titleInput,
+      title: document.getElementById('title-input').value,
+      description: document.getElementById('desc-input').value,
+      status: document.getElementById('select-status').value,
+      board: activeBoard,
     };
 
     const newTask = createNewTask(task);
@@ -243,7 +246,7 @@ function toggleTheme() {
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  //  titleInput.value = task.title,
+  // 
   
 
   // Get button elements from the task modal
