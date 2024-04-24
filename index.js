@@ -23,7 +23,7 @@ initializeData();
 const elements = {
    headerBoardName: document.getElementById('header-board-name'),
    editTaskModalWindow: document.querySelector('.edit-task-modal-window'),
-   modalWindow: document.querySelector('.modal-window'),
+   modalWindow: document.getElementById('new-task-modal-window'),
    columnDivs: document.querySelectorAll('.column-div'),
    toggleDiv: document.querySelector('.toggle-div'),
    hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
@@ -37,7 +37,7 @@ const elements = {
   darkThemeIcon: document.getElementById('icon-dark'),
   lightThemeIcon: document.getElementById('icon-light'),
 
-}
+};
 
 let activeBoard = "";
 
@@ -50,8 +50,8 @@ function fetchAndDisplayBoardsAndTasks() {
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
     activeBoard = localStorageBoard ? localStorageBoard :  boards[0]; 
-    elements.headerBoardName.textContent = activeBoard
-    styleActiveBoard(activeBoard)
+    elements.headerBoardName.textContent = activeBoard;
+    styleActiveBoard(activeBoard);
     refreshTasksUI();
   }
 }
@@ -70,7 +70,7 @@ function displayBoards(boards) {
       filterAndDisplayTasksByBoard(board);
       activeBoard = board //assigns active board
       localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
-      styleActiveBoard(activeBoard)
+      styleActiveBoard(activeBoard);
     });
     boardsContainer.appendChild(boardElement);
   });
@@ -96,7 +96,7 @@ function filterAndDisplayTasksByBoard(boardName) {
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
 
-    filteredTasks.filter(task => task.status = status).forEach(task => { 
+    filteredTasks.filter(task => task.status === status).forEach(task => { 
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
