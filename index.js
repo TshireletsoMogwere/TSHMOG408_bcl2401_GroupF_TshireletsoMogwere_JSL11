@@ -21,22 +21,21 @@ initializeData();
 
 // TASK: Get elements from the DOM
 const elements = {
-   headerBoardName: document.getElementById('header-board-name'),
-   editTaskModalWindow: document.querySelector('.edit-task-modal-window'),
-   modalWindow: document.getElementById('new-task-modal-window'),
-   columnDivs: document.querySelectorAll('.column-div'),
-   toggleDiv: document.querySelector('.toggle-div'),
-   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
-   showSideBarBtn: document.getElementById('show-side-bar-btn'),
-   filterDiv: document.getElementById('filterDiv'),
-   themeSwitch: document.getElementById('switch'), 
-   createNewTaskBtn: document.getElementById("add-new-task-btn"), 
-   showSidebar: document.getElementById('side-bar-div'),
-   sideBarBottom: document.querySelector('.side-bar-bottom'),
-  //  sideLogoDiv: sideBar.querySelector('#side-logo-div'),
+  headerBoardName: document.getElementById('header-board-name'),
+  editTaskModal: document.querySelector('.edit-task-modal-window'),
+  modalWindow: document.getElementById('new-task-modal-window'),
+  columnDivs: document.querySelectorAll('.column-div'),
+  toggleDiv: document.querySelector('.toggle-div'),
+  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+  showSideBarBtn: document.getElementById('show-side-bar-btn'),
+  filterDiv: document.getElementById('filterDiv'),
+  themeSwitch: document.getElementById('switch'), 
+  createNewTaskBtn: document.getElementById("add-new-task-btn"), 
+  showSidebar: document.getElementById('side-bar-div'),
+  sideBarBottom: document.querySelector('.side-bar-bottom'),
   darkThemeIcon: document.getElementById('icon-dark'),
   lightThemeIcon: document.getElementById('icon-light'),
-
+  
 };
 
 let activeBoard = "";
@@ -246,9 +245,9 @@ function toggleTheme() {
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  // document.getElementById('title-input').value = task.title
-  // document.getElementById('desc-input').value = task.description
-  // document.getElementById('select-status').value = task.status
+  document.getElementById('title-input').value = task.title
+  document.getElementById('desc-input').value = task.description
+  document.getElementById('select-status').value = task.status
   
 
   // Get button elements from the task modal
@@ -260,7 +259,7 @@ function openEditTaskModal(task) {
 
   // Call saveTaskChanges upon click of Save Changes button
      saveTaskChangesBtn.addEventListener('click', () => {
-      saveChanges();
+      // saveChanges();
       toggleModal(false, elements.editTaskModal);
      })
 
