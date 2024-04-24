@@ -30,7 +30,7 @@ const elements = {
    showSideBarBtn: document.getElementById('show-side-bar-btn'),
    filterDiv: document.getElementById('filterDiv'),
    themeSwitch: document.getElementById('switch'), 
-   createNewTaskBtn: document.getElementById("create-task-btn"), 
+   createNewTaskBtn: document.getElementById("add-new-task-btn"), 
    showSidebar: document.getElementById('side-bar-div'),
    sideBarBottom: document.querySelector('.side-bar-bottom'),
   //  sideLogoDiv: sideBar.querySelector('#side-logo-div'),
@@ -239,16 +239,16 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
-  document.body.classList.add('light-theme')
+  document.body.classList.toggle('light-theme')
 }
 
 
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  document.getElementById('edit-title-input').value = task.title
-  document.getElementById('edit-desc-input').value = task.description
-  document.getElementById('edit-select-status').value = task.status
+  // document.getElementById('title-input').value = task.title
+  // document.getElementById('desc-input').value = task.description
+  // document.getElementById('select-status').value = task.status
   
 
   // Get button elements from the task modal
@@ -261,6 +261,7 @@ function openEditTaskModal(task) {
   // Call saveTaskChanges upon click of Save Changes button
      saveTaskChangesBtn.addEventListener('click', () => {
       saveChanges();
+      toggleModal(false, elements.editTaskModal);
      })
 
   // Delete task using a helper function and close the task modal
