@@ -4,7 +4,7 @@
   I had to enhance a flagship Kanban Task Management App.
 
  ## Loom presenation link 
- [https://www.loom.com/share/ac07b740fad24d63a26fb477a43d8dc8?sid=1adb2486-a110-4ee0-a7a7-4d7fb5f1f451]
+ **https://www.loom.com/share/ac07b740fad24d63a26fb477a43d8dc8?sid=1adb2486-a110-4ee0-a7a7-4d7fb5f1f451**
 
 ## Learning Experience
 1. Explored the starter code by familiarizing myself with the UI and JS functionality provided to get an understanding of the project's  current 
