@@ -35,6 +35,7 @@ const elements = {
   sideBarBottom: document.querySelector('.side-bar-bottom'),
   darkThemeIcon: document.getElementById('icon-dark'),
   lightThemeIcon: document.getElementById('icon-light'),
+  logo: document.getElementById('logo'),
   
 };
 
@@ -237,9 +238,27 @@ function toggleSidebar(show) {
     }
 }
 
+//styling for the side bar 
+document.getElementById("boards-nav-links-div").style.marginTop = "50px";
+document.getElementById("boards-nav-links-div").style.marginBottom = "300px";
+
 function toggleTheme() {
-  document.body.classList.toggle('light-theme')
+  const isLightTheme = document.body.classList.contains('light-theme');
+  document.body.classList.toggle("light-theme");
+  
+  if (isLightTheme) {
+    logo.src = './assets/logo-dark.svg';
+    localStorage.setItem('logo', './assets/logo-dark.svg');
+    localStorage.setItem('light-theme', 'enabled');
+  } else {
+    logo.src = './assets/logo-light.svg';
+    localStorage.setItem('logo', './assets/logo-light.svg');
+    localStorage.setItem('light-theme', 'disabled');
+  }
+  elements.logo.src= localStorage.getItem('logo');
 }
+
+
 
 
 //OPENS THE EDIT TASK MODAL
@@ -314,12 +333,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
+
+  if (localStorage.getItem('logo') === './assets/logo-light.svg'){
+    logo.src = './assets/logo-light.svg';
+  }
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
-  const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
+  const isLightTheme = localStorage.getItem('light-theme') === 'disabled';
   document.body.classList.toggle('light-theme', isLightTheme);
-  fetchAndDisplayBoardsAndTasks('boards, tasks'); // Initial display of boards and tasks
+  elements.themeSwitch.checked = isLightTheme;
+  fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
 
 }
  
